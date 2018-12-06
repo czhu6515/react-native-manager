@@ -1,4 +1,5 @@
 import firebase from 'firebase'
+import { Actions } from 'react-native-router-flux'
 import { 
   EMAIL_CHANGED, 
   PASSWORD_CHANGED,
@@ -6,6 +7,7 @@ import {
   LOGIN_USER_FAIL,
   LOGIN_USER
 } from './types'
+
 
 export const emailChanged = (text) => {
   return {
@@ -37,6 +39,8 @@ export const loginUser = ({email, password}) => {
 
 const loginUserSuccess = (dispatch, user) => {
   dispatch({ type: LOGIN_USER_SUCCESS, payload: user})
+
+  Actions.employeeList()
 }
 
 const loginUserFail = (dispatch) => {
