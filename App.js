@@ -5,7 +5,7 @@ import reducers from './src/reducers'
 import firebase from 'firebase'
 import LogInForm from './src/components/LogInForm'
 import ReduxThunk from 'redux-thunk'
-
+import Router from './src/Router'
 
 
 class App extends React.Component {
@@ -26,7 +26,7 @@ class App extends React.Component {
     
     return (
       <Provider store={store}> 
-        <LogInForm />
+        <Router />
       </Provider>
     );
   }
