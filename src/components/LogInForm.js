@@ -18,6 +18,18 @@ class LogInForm extends Component {
     this.props.loginUser({email, password})
   }
 
+  renderError(){
+    if (this.props.error){
+      return(
+        <View style={styles.errorContainerStyle}>
+          <Text style={styles.errorTextStyle}>
+            {this.props.error}
+          </Text>
+        </View>
+      )
+    }
+  }
+
   render(){
     return (
       <Card>
@@ -39,7 +51,9 @@ class LogInForm extends Component {
             secureTextEntry={true}
           />
         </CardSection>
-          
+
+        {this.renderError()}
+
         <CardSection>
           <Button onPress={this.onButtonPress.bind(this)}>
             Log In! 
@@ -54,7 +68,20 @@ class LogInForm extends Component {
 const mapStateToProps = state => {
   return {
     email: state.auth.email,
-    password: state.auth.password
+    password: state.auth.password,
+    error: state.auth.error
+  }
+}
+
+
+const styles = {
+  errorContainerStyle: {
+    backgroundColor: 'white'
+  },
+  errorTextStyle: {
+    color: 'red',
+    fontSize: 20,
+    alignSelf: 'center'
   }
 }
 
