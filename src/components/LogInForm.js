@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import { View, Text } from 'react-native'
 import { Card, CardSection, Input, Button } from './common/index'
 import { emailChanged, passwordChanged, loginUser } from '../actions/index'
 import { connect } from 'react-redux'
